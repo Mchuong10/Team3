@@ -1,8 +1,41 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8" />
     <title>Welcome to Local PNW Artists Page!</title>
     <link rel="stylesheet" type="text/css" href="artiststyle.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
   </head>
-  </html>
+
+  <div data-role="page" id="home" data-theme="a">
+    
+    <div data-role="header" data-theme="a">
+     <h2>local artist directory - home</h2>
+     <div data-role="navbar">
+      <ul>
+        <li><a href="#addProfile" data-transition='flip'>Add an Artist Profile</a></li>
+        <li><a href="#searchProfile" data-transition="flip">Search for an Artist</a></li>
+      </ul>
+     </div>
+    </div>
+
+    <div data-role="content" data-theme="a">
+      <h2>Artist Spotlight</h2>
+      
+      <!-- picture of art goes here -->
+
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h3>Created by Marie & Shay 2024</h3>
+    </div>
+
+  </div>
+
+  <script src="artistindex.js"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</html>
