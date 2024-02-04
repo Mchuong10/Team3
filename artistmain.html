@@ -1,93 +1,126 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="UTF-8" />
     <title>Welcome to Local PNW Artists Page!</title>
     <link rel="stylesheet" type="text/css" href="artiststyle.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   </head>
-<div id="container">
+  <div id="container">
+    <!--HOME PAGE-->
+    <!--NAV-->
+    <div data-role="page" id="home" data-theme="a">
+      <div data-role="header" data-theme="a">
+        <h2>local artist directory - home</h2>
+        <div data-role="navbar">
+          <ul>
+            <li>
+              <a href="#add" data-transition="flip">Add an Artist Profile</a>
+            </li>
+            <li>
+              <a href="#search" data-transition="flip">Search for an Artist</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-<!--HOME PAGE-->
-<!--NAV-->
-  <div data-role="page" id="home" data-theme="a">
-    <div data-role="header" data-theme="a">
-     <h2>local artist directory - home</h2>
-     <div data-role="navbar">
+      <!--CONTENT-->
+      <div data-role="content" data-theme="a">
+        <h2>Artist Spotlight</h2>
+
+        <!-- picture of art goes here -->
+      </div>
+
+      <!--FOOTER-->
+      <div data-role="footer" data-theme="a">
+        <h3>Created by Marie & Shay 2024</h3>
+      </div>
+    </div>
+    <!--END-->
+
+    <!--ADD PAGE-->
+    <!--NAV-->
+    <div data-role="page" id="add">
+      <div data-role="header" data-theme="b">
+        <div data-role="navbar" data-theme="b">
+          <ul>
+            <li><a href="#home" data-transition="pop">Home Page</a></li>
+            <li>
+              <a href="#search" data-transition="pop">Search for an Artist</a>
+            </li>
+          </ul>
+          <h2>local artist directory - add a local artist's profile</h2>
+        </div>
+
+        <!--CONTENT-->
+        <div data-role="content" data-theme="b">
+          <form>
+            <label for="fName">Enter artist's first name:</label>
+            <input type="text" id="fName" value="" />
+            <label for="lName">Enter their last name:</label>
+            <input type="text" id="lName" value="" />
+            <label for="website">Enter artist's website:</label>
+            <input type="text" id="website" value="" />
+            <label for="city">Enter artist's city:</label>
+            <input type="text" id="city" value="" />
+            <!--DROP MENU-->
+            <label for="artType">Select a type:</label>
+            <select name="artType" id="artType">
+              <option value="Painting">Painting</option>
+              <option value="Sculpting">Sculpting</option>
+              <option value="Photography">Photography</option>
+              <option value="Other">Other</option>
+            </select>
+            <input type="submit" id="subButton" value="Submit" />
+          </form>
+
+          <a
+            href="#popupMenu"
+            data-rel="popup"
+            data-transition="slideup"
+            class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a"
+            >What would you like to do?</a
+          >
+          <div data-role="popup" id="popupMenu" data-theme="b">
+            <ul data-role="listview" data-inset="true" style="min-width: 210px">
+              <li data-role="list-divider">Choose:</li>
+              <li><a href="#home" data-transition="flow">Back to Home</a></li>
+              <li>
+                <a href="#search" data-transition="fade"
+                  >Search for an Artist</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Add page for searchable artist-->
+    <div data-role="page" id="search">
+            <div data-role="header" data-theme="a">
+        <h2>Local Artist Directory - Search</h2>
+    <div data-role="navbar" data-theme="b">
       <ul>
-        <li><a href="#add" data-transition='flip'>Add an Artist Profile</a></li>
-        <li><a href="#search" data-transition="flip">Search for an Artist</a></li>
+        <li><a href="#home" data-transition="pop">Home Page</a></li>
+        <li>
+              <a href="#add" data-transition="flip">Add an Artist Profile</a>
+            </li>
       </ul>
-     </div>
-     </div>
-
-<!--CONTENT-->
-    <div data-role="content" data-theme="a">
-      <h2>Artist Spotlight</h2>
-      
-      <!-- picture of art goes here -->
-
-    </div>
-
-<!--FOOTER-->
-    <div data-role="footer" data-theme="a">
-      <h3>Created by Marie & Shay 2024</h3>
     </div>
   </div>
-<!--END-->
-
-
-
-<!--ADD PAGE-->
-<!--NAV-->
-  <div data-role="page" id="add">
-    <div data-role="header" data-theme="b">
-      <div data-role="navbar" data-theme="b">
-        <ul>
-          <li><a href="#home" data-transition="pop">Home Page</a></li>
-          <li><a href="#search" data-transition="pop">Search for an Artist</a></li>
-        </ul>
-        <h2>local artist directory - add a local artist's profile</h2>
-      </div>
-
-<!--CONTENT-->
-      <div data-role="content" data-theme="b">
-        <form>
-          <label for="fName">Enter artist's first name:</label>
-          <input type="text" id="fName" value="">
-          <label for="lName">Enter their last name:</label>
-          <input type="text" id="lName" value="">
-          <label for="website">Enter artist's website:</label>
-          <input type="text" id="website" value="">
-          <label for="city">Enter artist's city:</label>
-          <input type="text" id="city" value="">
-<!--DROP MENU-->
-          <label for="artType">Select a type:</label>
-          <select name="artType" id="artType">
-            <option value="Painting">Painting</option>
-            <option value="Sculpting">Sculpting</option>
-            <option value="Photography">Photography</option>
-            <option value="Other">Other</option>
-          </select>
-          <input type="submit" id="subButton" value="Submit">
-      </form>
-
-      <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
-      <div data-role="popup" id="popupMenu" data-theme="b">
-      <ul data-role="listview" data-inset="true" style="min-width:210px;">
-      <li data-role="list-divider">Choose:</li>
-      <li><a href="#home" data-transition="flow" >Back to Home</a></li>
-      <li><a href="#search" data-transition="fade" >Search for an Artist</a></li>
-      </ul>
-      </div>
-
-    </div>
-
-</div>
-
+  <!-- Content for the List Page -->
+  <div data-role="content">
+    <!-- Your list page content goes here -->
   </div>
-</div>
+          <!--FOOTER-->
+      <div data-role="footer" data-theme="a">
+        <h3>Created by Marie & Shay 2024</h3>
+      </div>
+          </div>
+
+
 
   <script src="artistindex.js"></script>
   <!-- jquery -->

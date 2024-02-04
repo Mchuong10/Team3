@@ -9,6 +9,7 @@ let pArtist = function (pName, pWebsite, pCity, pArt) {
     this.art = pArt;
 }
 
+
 //existing artists
 
 artistIndex.push(new pArtist("Sarah Hughes", "apinchdifferent.com", "North Bend", "Painting"));
