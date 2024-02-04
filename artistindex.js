@@ -69,9 +69,9 @@ function addArtist() {
 
   // Captions
   var captionImages = [
-    "art1",
-    "art2",
-    "art3",
+    "WaterColor by Pepper Allphin",
+    "Mural by Pepper Allphin",
+    "Pet Rocks for Adoption by Pepper Allphin",
     "Original Abstract by Will Brown",
     "Solo tree landscape by Will Brown",
     "Original Abstract by Will Brown",
