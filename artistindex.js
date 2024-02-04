@@ -53,63 +53,58 @@ function addArtist() {
 };
 
 
- 
- var currentIndex = 1;
+  var currentIndex = 0; // Start from 0 to match array index
   var slides = document.getElementById('slides');
   var nextButton = document.getElementById('next');
 
-//Images
-var myImages = [
-  "art1.jpeg",
-  "art2.jpeg",
-  "art3.jpeg",
-  "WillBrown1.jpg",
-  "WillBrown2.jpg",
-  "WillBrown3.jpg",
-];
+  // Images
+  var myImages = [
+    "art1.jpeg",
+    "art2.jpeg",
+    "art3.jpeg",
+    "WillBrown1.jpg",
+    "WillBrown2.jpg",
+    "WillBrown3.jpg",
+  ];
 
-// captions
-var captionImages = [
-  "art1",
-  "art2",
-  "art3",
-  "Original Abstract by Will Brown",
-  "Solo tree landscape by Will Brown",
-  "Original Abstract by Will Brown",
-];
+  // Captions
+  var captionImages = [
+    "art1",
+    "art2",
+    "art3",
+    "Original Abstract by Will Brown",
+    "Solo tree landscape by Will Brown",
+    "Original Abstract by Will Brown",
+  ];
 
-var index = 0;
-//fuctions
+  function updateImage() {
+    document.getElementById("slideshow").src = myImages[currentIndex];
+    document.getElementById("slideshow").alt = captionImages[currentIndex];
+    document.getElementById("caption").textContent = captionImages[currentIndex];
+  }
 
-function updateImage() {
-  document.getElementById("slideshow").src = myImages[index];
-  document.getElementById("slideshow").alt = captionImages[index];
-  document.getElementById("caption").textContent = captionImages[index];
-}
+  function next() {
+    currentIndex = (currentIndex + 1) % myImages.length;
+    updateImage();
+  }
 
-function next() {
-  if (myImages.length == index + 1) index = 0;
-  else index++;
-  updateImage();
-}
+  function back() {
+    currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
+    updateImage();
+  }
 
-function back() {
-  if (index === 0) index = myImages.length - 1;
-  else index--;
+  // Buttons
+  var nextButton = document.getElementById("next");
+  var previousButton = document.getElementById("previous");
 
-  updateImage();
-}
-//buttons
-var nextButton = document.getElementById("next");
-var previousButton = document.getElementById("previous");
+  previousButton.addEventListener("click", back, false);
+  nextButton.addEventListener("click", next, false);
 
-previousButton.addEventListener("click", back, false);
-nextButton.addEventListener("click", next, false);
- function autoSlide() {
-   setInterval(function () {
-     nextSlide();
-   }, 3000); // Change the interval (in milliseconds) as needed
- }
+  function autoSlide() {
+    setInterval(function () {
+      next();
+    }, 3000); // Change the interval (in milliseconds) as needed
+  }
 
- // Trigger the automatic slideshow initially
- autoSlide();
+  // Trigger the automatic slideshow initially
+  autoSlide();
