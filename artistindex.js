@@ -23,20 +23,7 @@ artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattl
 
 //dom loaded
 
-document.addEventListener("DOMContentLoaded", function(event) {
 
-    $(document).bind("change", "#page", function (event, ui) {
-        whichPage = document.getElementById("#page").value
-    });
-
-    slideshow(pictureIndex);
-
-    document.getElementById("subButton").addEventListener("click", function() {
-        addArtist();
-        document.getElementById("addForm").reset();
-    });
-
-});
 
 //functions
 
