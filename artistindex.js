@@ -62,8 +62,29 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Trigger the automatic slideshow initially
   autoSlide();
+
+  displayArtists(artistIndex);
+
+  document.getElementById("searchInput").addEventListener("input", function () {
+    let searchValue = this.value.toLowerCase();
+    let filteredArtists = artistIndex.filter((artist) =>
+      artist.name.toLowerCase().includes(searchValue)
+    );
+    displayArtists(filteredArtists);
+  });
 });
 
+
+function displayArtists(artists) {
+  let artistsList = document.getElementById("artistsList");
+  artistsList.innerHTML = ""; // Clear previous list
+
+  artists.forEach((artist) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
+    artistsList.appendChild(listItem);
+  });
+}
   //function descriptions
   function addArtist() {
     selectedType = document.getElementById("artType").value;
