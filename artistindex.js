@@ -51,27 +51,27 @@ artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattl
 
 //dom loaded
 
-document.addEventListener("DOMContentLoaded", function(event) {
-document.getElementById("subButton").addEventListener("click", function () {
-  addArtist();
-});
+document.addEventListener("DOMContentLoaded", function (event) {
+  document.getElementById("subButton").addEventListener("click", function () {
+    addArtist();
+  });
+
+  document.getElementById("page").addEventListener("change", function (event) {
+    whichPage = this.value; // 'this' refers to the element that triggered the event
+  });
+
   // Trigger the automatic slideshow initially
   autoSlide();
-    $(document).bind("change", "#page", function (event, ui) {
-        whichPage = document.getElementById("#page").value
-    });
-
-
 });
 
   //function descriptions
   function addArtist() {
     selectedType = document.getElementById("artType").value;
     let Artist = {
-        name: document.getElementById("fName").value + " " + document.getElementById("lName").value,
-        website: document.getElementById("website").value,
-        city: document.getElementById("city").value,
-        art: selectedType
+      name: document.getElementById("fName").value + " " + document.getElementById("lName").value,
+      website: document.getElementById("website").value,
+      city: document.getElementById("city").value,
+      art: selectedType
     };
     artistIndex.push(Artist);
     console.log(artistIndex);
