@@ -2,6 +2,10 @@
 let artistIndex = [];
 let selectedType = "";
 let whichPage = "";
+var currentIndex = 0; // Start from 0 to match array index
+var slides = document.getElementById("slides");
+var nextButton = document.getElementById("next");
+var previousButton = document.getElementById("previous");
 
 //slideshow
 var currentIndex = 0; // Start from 0 to match array index
@@ -33,11 +37,8 @@ let pArtist = function (pName, pWebsite, pCity, pArt) {
     this.art = pArt;
 }
 //buttons
-var nextButton = document.getElementById("next");
-var previousButton = document.getElementById("previous");
-
-previousButton.addEventListener("click", back, false);
 nextButton.addEventListener("click", next, false);
+previousButton.addEventListener("click", back, false);
 
 
 //existing artists
@@ -63,8 +64,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // Trigger the automatic slideshow initially
   autoSlide();
 
-  displayArtists(artistIndex);
 
+  // search artist 
+  
   document.getElementById("searchInput").addEventListener("input", function () {
     let searchValue = this.value.toLowerCase();
     let filteredArtists = artistIndex.filter((artist) =>
@@ -72,12 +74,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     );
     displayArtists(filteredArtists);
   });
+
+  displayArtists(artistIndex);
 });
 
 
 function displayArtists(artists) {
   let artistsList = document.getElementById("artistsList");
-  artistsList.innerHTML = ""; // Clear previous list
+  
 
   artists.forEach((artist) => {
     let listItem = document.createElement("li");
