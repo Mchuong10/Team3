@@ -3,3 +3,49 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+img {
+    width: 100%;
+}
+ 
+.height {
+    height: 10px;
+}
+ 
+.slideshow {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+}
+
+.slideNumber {
+    background-color: #5574C5;
+    color: white;
+    border-radius: 25px;
+    right: 0;
+    opacity: .5;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    position: absolute;
+}
+
+.footerdot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+}
+ 
+.active,
+.footerdot:hover {
+    background-color: black;
+}
+ 

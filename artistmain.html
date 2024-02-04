@@ -8,7 +8,13 @@
       rel="stylesheet"
       href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   </head>
+
+
   <div id="container">
+
+
+
+
     <!--HOME PAGE-->
     <!--NAV-->
     <div data-role="page" id="home" data-theme="a">
@@ -30,7 +36,34 @@
       <div data-role="content" data-theme="a">
         <h2>Artist Spotlight</h2>
 
-        <!-- picture of art goes here -->
+    <!--SLIDESHOW-->
+    <div class="slideshow">
+      <div class="slide">
+          <div class="slideNumber">1</div>
+          <img src=
+"images/art1.jpeg">
+      </div>
+      <div class="slide">
+          <div class="slideNumber">2</div>
+          <img src=
+"images/art2.jpeg">
+      </div>
+      <div class="slide">
+          <div class="slideNumber">3</div>
+          <img src=
+"images/art3.jpeg">
+      </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="footerdot" onclick="activeSlide(1)">
+      </span>
+      <span class="footerdot" onclick="activeSlide(2)">
+      </span>
+      <span class="footerdot" onclick="activeSlide(3)">
+      </span>
+  </div>
+
       </div>
 
       <!--FOOTER-->
@@ -43,20 +76,21 @@
     <!--ADD PAGE-->
     <!--NAV-->
     <div data-role="page" id="add">
-      <div data-role="header" data-theme="b">
-        <div data-role="navbar" data-theme="b">
+      <div data-role="header" data-theme="a">
+        <h2>local artist directory - add an artist</h2>
+        <div data-role="navbar" data-theme="a">
           <ul>
             <li><a href="#home" data-transition="pop">Home Page</a></li>
             <li>
               <a href="#search" data-transition="pop">Search for an Artist</a>
             </li>
           </ul>
-          <h2>local artist directory - add a local artist's profile</h2>
+        </div>
         </div>
 
         <!--CONTENT-->
-        <div data-role="content" data-theme="b">
-          <form>
+        <div data-role="content" data-theme="a">
+          <form id="addForm">
             <label for="fName">Enter artist's first name:</label>
             <input type="text" id="fName" value="" />
             <label for="lName">Enter their last name:</label>
@@ -76,32 +110,34 @@
             <input type="submit" id="subButton" value="Submit" />
           </form>
 
-          <a
-            href="#popupMenu"
-            data-rel="popup"
-            data-transition="slideup"
-            class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a"
-            >What would you like to do?</a
-          >
-          <div data-role="popup" id="popupMenu" data-theme="b">
+        <!--MENU -->
+          <!-- <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
+
+          <div data-role="popup" id="popupMenu" data-theme="a">
             <ul data-role="listview" data-inset="true" style="min-width: 210px">
               <li data-role="list-divider">Choose:</li>
               <li><a href="#home" data-transition="flow">Back to Home</a></li>
-              <li>
-                <a href="#search" data-transition="fade"
-                  >Search for an Artist</a
-                >
+              <li><a href="#search" data-transition="fade">Search for an Artist</a>
               </li>
             </ul>
-          </div>
+          </div> -->
+
+        </div>
+
+      <!--FOOTER-->
+        <div data-role="footer" data-theme="a">
+          <h3>Created by Marie & Shay 2024</h3>
         </div>
       </div>
-    </div>
+    <!--END-->
+
+
     <!--Add page for searchable artist-->
     <div data-role="page" id="search">
-            <div data-role="header" data-theme="a">
-        <h2>Local Artist Directory - Search</h2>
-    <div data-role="navbar" data-theme="b">
+      <div data-role="header" data-theme="a">
+        <h2>local artist directory - search for an artist</h2>
+    <!--NAV-->
+    <div data-role="navbar" data-theme="a">
       <ul>
         <li><a href="#home" data-transition="pop">Home Page</a></li>
         <li>
@@ -118,7 +154,13 @@
       <div data-role="footer" data-theme="a">
         <h3>Created by Marie & Shay 2024</h3>
       </div>
-          </div>
+    </div>
+    <!--END-->
+
+
+
+
+  </div> <!--CONTAINER DIV-->
 
 
 
