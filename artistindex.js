@@ -54,34 +54,62 @@ function addArtist() {
 
 
  
-function moveSlides(n) {
-    slideshow(pictureIndex += n);
-}
- 
-function activeSlide(n) {
-    slideshow(pictureIndex = n);
-}
- 
-function slideshow(n) {
-    let i;
-    let allSlides = document.getElementsByClassName("slide");
-    let dots = document.getElementsByClassName("footerdot");
- 
+ var currentIndex = 1;
+  var slides = document.getElementById('slides');
+  var nextButton = document.getElementById('next');
 
-    if (n > allSlides.length) {
-        pictureIndex = 1;
-    }
+//Images
+var myImages = [
+  "art1.jpeg",
+  "art2.jpeg",
+  "art3.jpeg",
+  "WillBrown1.jpg",
+  "WillBrown2.jpg",
+  "WillBrown3.jpg",
+];
 
-    if (n < 1) {
-        pictureIndex = allSlides.length;
-    }
+// captions
+var captionImages = [
+  "art1",
+  "art2",
+  "art3",
+  "Original Abstract by Will Brown",
+  "Solo tree landscape by Will Brown",
+  "Original Abstract by Will Brown",
+];
 
-    for (i = 0; i < allSlides.length; i++) {
-        allSlides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace("active", "");
-    }
-    allSlides[pictureIndex - 1].style.display = "block";
-    dots[pictureIndex - 1].className += " active";
+var index = 0;
+//fuctions
+
+function updateImage() {
+  document.getElementById("slideshow").src = myImages[index];
+  document.getElementById("slideshow").alt = captionImages[index];
+  document.getElementById("caption").textContent = captionImages[index];
 }
+
+function next() {
+  if (myImages.length == index + 1) index = 0;
+  else index++;
+  updateImage();
+}
+
+function back() {
+  if (index === 0) index = myImages.length - 1;
+  else index--;
+
+  updateImage();
+}
+//buttons
+var nextButton = document.getElementById("next");
+var previousButton = document.getElementById("previous");
+
+previousButton.addEventListener("click", back, false);
+nextButton.addEventListener("click", next, false);
+ function autoSlide() {
+   setInterval(function () {
+     nextSlide();
+   }, 3000); // Change the interval (in milliseconds) as needed
+ }
+
+ // Trigger the automatic slideshow initially
+ autoSlide();

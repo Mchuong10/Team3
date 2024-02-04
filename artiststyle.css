@@ -1,51 +1,38 @@
-body {
-    background-image: url("https://via.placeholder.com/150/300AAA");
-    background-position: center;
-    background-size: cover;
+#slides {
+  background-position: center;
+  background-size: cover;
+  text-align: center;
 }
 
-img {
-    width: 100%;
-}
- 
-.height {
-    height: 10px;
-}
- 
-.slideshow {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
+#slideshow {
+  margin: 100%; 
+  height: 500px;   
+  margin: 0 auto;  
 }
 
-.slideNumber {
-    background-color: #5574C5;
-    color: white;
-    border-radius: 25px;
-    right: 0;
-    opacity: .5;
-    margin: 5px;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    position: absolute;
+#previous,
+#next {
+  display: inline-block;
+  margin-top: 20px; 
 }
 
+#auto {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px; 
+}
 .footerdot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbbbbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.5s ease;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.5s ease;
 }
- 
+
 .active,
 .footerdot:hover {
-    background-color: black;
+  background-color: black;
 }
- 
