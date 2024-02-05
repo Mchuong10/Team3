@@ -48,7 +48,6 @@ artistIndex.push(new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painti
 artistIndex.push(new pArtist("Noelle Rivas", "instagram.com/ceramics_bynoelle", "Seattle", "Sculpting"));
 artistIndex.push(new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting"));
 artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other"));
-artistIndex.push(new pArtist("Will Brown", "www.youtube.com/willbrownart", "Seattle", "Painting"));
 displayArtists(artistIndex);
 //dom loaded
 
@@ -83,7 +82,7 @@ function displayArtists() {
     // Check if the artist matches the selected type or if "All" is selected
     if (filterType === "All" || Artist.art === filterType) {
       let listItem = document.createElement("li");
-      listItem.textContent = `${Artist.name} - ${Artist.city} -- ${Artist.website} - ${Artist.art}`;
+      listItem.textContent = `${Artist.name} - ${Artist.city} - ${Artist.art}`;
       artistsList.appendChild(listItem);
     };
   });
@@ -124,4 +123,3 @@ function displayArtists() {
     currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
     updateImage();
   }
-
