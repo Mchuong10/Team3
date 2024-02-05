@@ -1,12 +1,3 @@
-body {
-    background-image:url("ArtBackground.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin:0;
-
-}
-
 #slides {
   background-position: center;
   background-size: cover;
