@@ -2,7 +2,7 @@
 let artistIndex = [];
 let selectedType = "";
 let whichPage = "";
-var currentIndex = 0; // Start from 0 to match array index
+var currentIndex = 0; 
 var slides = document.getElementById("slides");
 var nextButton = document.getElementById("next");
 var previousButton = document.getElementById("previous");
@@ -66,14 +66,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // search artist
 
-  $(document).ready(function () {
-    var artistsList = $("#artistsList");
-    var artistIndex = []
-    $.each(artistIndex, function (index, value) {
-      artistIndex.append($("<li>" + value + "</li>"))
-    })
-  })
+function displayArtists(artists) {
+  let artistsList = document.getElementById("artistsList");
+  let filterType = document.getElementById("filterType").value;
 
+  // Clear previous list
+  artistsList.innerHTML = "";
+
+  artists.forEach((artist) => {
+    // Check if the artist matches the selected type or if "All" is selected
+    if (filterType === "All" || artist.art === filterType) {
+      let listItem = document.createElement("li");
+      listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
+      artistsList.appendChild(listItem);
+    }
+  });
+}
 
 
   //function descriptions
