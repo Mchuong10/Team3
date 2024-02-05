@@ -49,6 +49,7 @@ artistIndex.push(new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painti
 artistIndex.push(new pArtist("Noelle Rivas", "instagram.com/ceramics_bynoelle", "Seattle", "Sculpting"));
 artistIndex.push(new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting"));
 artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other"));
+artistIndex.push(new pArtist("Will Brown", "www.youtube.com/willbrownart", "Seattle", "Painting"));
 displayArtists(artistIndex);
 //dom loaded
 
