@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // Trigger the automatic slideshow initially
   autoSlide()
-})
+});
 
   // search artist
 
@@ -85,7 +85,7 @@ function displayArtists() {
       let listItem = document.createElement("li");
       listItem.textContent = `${Artist.name} - ${Artist.city} - ${Artist.art}`;
       artistsList.appendChild(listItem);
-    }
+    };
   });
 }
 
