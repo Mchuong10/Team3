@@ -77,8 +77,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 function displayArtists() {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
-
-
+  artistsList.innerHTML = "";
 
   artistIndex.forEach((Artist) => {
     // Check if the artist matches the selected type or if "All" is selected
