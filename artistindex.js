@@ -65,13 +65,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
   autoSlide();
 
   // search artist
-
+class pArtist {
+  constructor(name, website, city, art) {
+    this.name = name;
+    this.website = website;
+    this.city = city;
+    this.art = art;
+  }
+  getFormattedInfo() {
+    return `${this.name} - ${this.city} - ${this.art}`;
+  }
+  }
+  
 function displayArtists(artists) {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
-
-  // Clear previous list
-  artistsList.innerHTML = "";
+  
+displayArtists(artistIndex);
 
   artists.forEach((artist) => {
     // Check if the artist matches the selected type or if "All" is selected
