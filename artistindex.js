@@ -49,7 +49,7 @@ artistIndex.push(new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painti
 artistIndex.push(new pArtist("Noelle Rivas", "instagram.com/ceramics_bynoelle", "Seattle", "Sculpting"));
 artistIndex.push(new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting"));
 artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other"));
-
+displayArtists(artistIndex);
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -78,8 +78,7 @@ function displayArtists() {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
 
-  // Clear previous list
-  artistsList.innerHTML = "";
+
 
   artistIndex.forEach((Artist) => {
     // Check if the artist matches the selected type or if "All" is selected
