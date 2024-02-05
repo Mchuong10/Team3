@@ -80,16 +80,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 
 
-function displayArtists(artists) {
-  let artistsList = document.getElementById("artistsList");
-  
 
-  artists.forEach((artist) => {
-    let listItem = document.createElement("li");
-    listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
-    artistsList.appendChild(listItem);
-  });
-}
   //function descriptions
   function addArtist() {
     selectedType = document.getElementById("artType").value;
@@ -124,3 +115,12 @@ function displayArtists(artists) {
     currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
     updateImage();
   }
+function displayArtists(artists) {
+  let artistsList = document.getElementById("artistsList");
+
+  artists.forEach((artist) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
+    artistsList.appendChild(listItem);
+  });
+}
