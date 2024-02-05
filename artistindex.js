@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // Trigger the automatic slideshow initially
   autoSlide();
 
+  // search artist
 
-  // search artist 
-  
   document.getElementById("searchInput").addEventListener("input", function () {
+    console.log("Search input changed:", this.value);
     let searchValue = this.value.toLowerCase();
     let filteredArtists = artistIndex.filter((artist) =>
       artist.name.toLowerCase().includes(searchValue)
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     displayArtists(filteredArtists);
   });
 
+  console.log("Displaying artists initially");
   displayArtists(artistIndex);
 });
 
