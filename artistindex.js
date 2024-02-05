@@ -66,18 +66,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // search artist
 
-  document.getElementById("searchInput").addEventListener("input", function () {
-    console.log("Search input changed:", this.value);
-    let searchValue = this.value.toLowerCase();
-    let filteredArtists = artistIndex.filter((artist) =>
-      artist.name.toLowerCase().includes(searchValue)
-    );
-    displayArtists(filteredArtists);
-  });
-
-  console.log("Displaying artists initially");
-  displayArtists(artistIndex);
-});
+  $(document).ready(function () {
+    var artistsList = $("#artistsList");
+    var artistIndex = []
+    $.each(artistIndex, function (index, value) {
+      artistIndex.append($("<li>" + value + "</li>"))
+    })
+  })
 
 
 
@@ -115,12 +110,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
     currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
     updateImage();
   }
-function displayArtists(artists) {
-  let artistsList = document.getElementById("artistsList");
-
-  artists.forEach((artist) => {
-    let listItem = document.createElement("li");
-    listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
-    artistsList.appendChild(listItem);
-  });
-}
+})
