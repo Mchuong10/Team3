@@ -37,8 +37,8 @@ let pArtist = function (pName, pWebsite, pCity, pArt) {
     this.art = pArt;
 }
 //buttons
-nextButton.addEventListener("click", next(), false);
-previousButton.addEventListener("click", back(), false);
+nextButton.addEventListener("click", next, false);
+previousButton.addEventListener("click", back, false);
 
 
 //existing artists
@@ -94,7 +94,7 @@ function displayArtists() {
   //function descriptions
   function addArtist() {
     // selectedType = document.getElementById("artType").value;
-    let Artist = {
+    let Artist = new pArtist{
       name: document.getElementById("fName").value + " " + document.getElementById("lName").value,
       website: document.getElementById("website").value,
       city: document.getElementById("city").value,
