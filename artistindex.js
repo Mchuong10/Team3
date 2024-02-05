@@ -1,4 +1,3 @@
-
 artistIndex = [];
 let selectedType = "";
 let whichPage = "";
@@ -125,3 +124,4 @@ function displayArtists() {
     currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
     updateImage();
   }
+
