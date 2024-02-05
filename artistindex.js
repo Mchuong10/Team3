@@ -1,5 +1,5 @@
 
-let artistIndex = [];
+artistIndex = [];
 let selectedType = "";
 let whichPage = "";
 var currentIndex = 0; 
@@ -37,8 +37,8 @@ let pArtist = function (pName, pWebsite, pCity, pArt) {
     this.art = pArt;
 }
 //buttons
-nextButton.addEventListener("click", next, false);
-previousButton.addEventListener("click", back, false);
+nextButton.addEventListener("click", next(), false);
+previousButton.addEventListener("click", back(), false);
 
 
 //existing artists
@@ -55,29 +55,37 @@ artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattl
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("subButton").addEventListener("click", function () {
     addArtist();
-  });
+  })
+  $(document).bind("change", "#artType", function (event, ui) {
+    selectedType = document.getElementById("artType").value;
+  })
+  console.log(artistIndex);
+  document.getElementById("filterType").addEventListener("change", function() {
+    displayArtists();
+  })
 
-  document.getElementById("page").addEventListener("change", function (event) {
-    whichPage = this.value; // 'this' refers to the element that triggered the event
-  });
+  // document.getElementById("page").addEventListener("change", function (event) {
+  //   whichPage = this.value; // 'this' refers to the element that triggered the event
+  // })
 
   // Trigger the automatic slideshow initially
-  autoSlide();
+  autoSlide()
+})
 
   // search artist
 
-function displayArtists(artists) {
+function displayArtists() {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
 
   // Clear previous list
   artistsList.innerHTML = "";
 
-  artists.forEach((artist) => {
+  artistIndex.forEach((Artist) => {
     // Check if the artist matches the selected type or if "All" is selected
-    if (filterType === "All" || artist.art === filterType) {
+    if (filterType === "All" || Artist.art === filterType) {
       let listItem = document.createElement("li");
-      listItem.textContent = `${artist.name} - ${artist.city} - ${artist.art}`;
+      listItem.textContent = `${Artist.name} - ${Artist.city} - ${Artist.art}`;
       artistsList.appendChild(listItem);
     }
   });
@@ -86,7 +94,7 @@ function displayArtists(artists) {
 
   //function descriptions
   function addArtist() {
-    selectedType = document.getElementById("artType").value;
+    // selectedType = document.getElementById("artType").value;
     let Artist = {
       name: document.getElementById("fName").value + " " + document.getElementById("lName").value,
       website: document.getElementById("website").value,
@@ -118,4 +126,3 @@ function displayArtists(artists) {
     currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
     updateImage();
   }
-})
