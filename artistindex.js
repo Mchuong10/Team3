@@ -84,7 +84,7 @@ function displayArtists() {
     // Check if the artist matches the selected type or if "All" is selected
     if (filterType === "All" || Artist.art === filterType) {
       let listItem = document.createElement("li");
-      listItem.textContent = `${Artist.name} - ${Artist.city} - ${Artist.art}`;
+      listItem.textContent = `${Artist.name} - ${Artist.city} -- ${Artist.website} - ${Artist.art}`;
       artistsList.appendChild(listItem);
     };
   });
