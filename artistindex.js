@@ -29,11 +29,13 @@ var captionImages = [
   "Original Abstract by Will Brown",
 ];
 
-let pArtist = function (pName, pWebsite, pCity, pArt) {
+let pArtist = function (pID, pName, pWebsite, pCity, pArt) {
+  this.ID = pID;
   this.name = pName;
   this.website = pWebsite;
   this.city = pCity;
   this.art = pArt;
+  this.ID = artistIndex.length +1
 };
 //buttons
 nextButton.addEventListener("click", next(), false);
@@ -42,32 +44,34 @@ previousButton.addEventListener("click", back(), false);
 //existing artists
 
 artistIndex.push(
-  new pArtist("Sarah Hughes", "apinchdifferent.com", "North Bend", "Painting")
+  new pArtist(1, "Sarah Hughes", "https://www.apinchdifferent.com/", "North Bend", "Painting")
 );
 artistIndex.push(
   new pArtist(
+    2,
     "Tara Sreekuman",
-    "plentyopixels.com",
+    "https://www.plentyopixels.com/",
     "Snoqualmie",
     "Photography"
   )
 );
 artistIndex.push(
-  new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painting")
+  new pArtist(3, "Jess Joy", "https://www.jessjoyart.com/", "North Bend", "Painting")
 );
 artistIndex.push(
   new pArtist(
+    4,
     "Noelle Rivas",
-    "instagram.com/ceramics_bynoelle",
+    "https://www.instagram.com/ceramics_bynoelle/",
     "Seattle",
     "Sculpting"
   )
 );
 artistIndex.push(
-  new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting")
+  new pArtist(5, "Pepper Allphin", "https://www.instagram.com/pepper.allphin/", "North Bend", "Painting")
 );
 artistIndex.push(
-  new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other")
+  new pArtist(6, "Adel Anderson", "https://www.instagram.com/toymakery/", "Seattle", "Other")
 );
 displayArtists(artistIndex);
 
@@ -115,6 +119,7 @@ function displayArtists() {
 function addArtist() {
   selectedType = document.getElementById("artType").value;
   let Artist = {
+    ID: artistIndex.length +1,
     name:
       document.getElementById("fName").value +
       " " +
@@ -124,7 +129,8 @@ function addArtist() {
     art: selectedType,
   };
   artistIndex.push(Artist);
-  console.log(artistIndex);
+  document.location.href = "artistmain.html#list";
+  // console.log(artistIndex);
 }
 
 function autoSlide() {
@@ -155,18 +161,21 @@ function createTable() {
   var theTable = document.getElementById("tableID");
   theTable.innerHTML = "";
   //column headings
-  theTable.innerHTML = "<thead><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
+  theTable.innerHTML = "<thead><th>ID</th><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
   //rows
   artistIndex.forEach((Artist) => {
     const newRow = document.createElement('tr');
+    const tdID = document.createElement("td");
     const tdName = document.createElement("td");
     const tdWebsite = document.createElement("td");
     const tdCity = document.createElement("td");
     const tdArt = document.createElement("td");
+    tdID.textContent = Artist.ID;
     tdName.textContent = Artist.name;
     tdWebsite.textContent = Artist.website;
     tdCity.textContent = Artist.city;
     tdArt.textContent = Artist.art;
+    newRow.appendChild(tdID);
     newRow.appendChild(tdName);
     newRow.appendChild(tdWebsite);
     newRow.appendChild(tdCity);
@@ -182,8 +191,8 @@ function createTable() {
           {
               return function() { 
                                   var cell = row.getElementsByTagName("td")[0];
-                                  var whichWebsite = cell.innerHTML;
-                                  openWebsite(whichWebsite);
+                                  var whichID = cell.innerHTML;
+                                  openWebsite(whichID);
                                };
           };
 
@@ -193,7 +202,7 @@ function createTable() {
 
 function openWebsite(which){
   for(let i = 0; i < artistIndex.length; i++){
-     if(which == artistIndex[i].website){
+     if(which == artistIndex[i].ID){
         window.open(artistIndex[i].website);
       }
   }
