@@ -1,16 +1,15 @@
-
 artistIndex = [];
 let selectedType = "";
 let whichPage = "";
-var currentIndex = 0; 
+var currentIndex = 0;
 var slides = document.getElementById("slides");
 var nextButton = document.getElementById("next");
 var previousButton = document.getElementById("previous");
 
 //slideshow
 var currentIndex = 0; // Start from 0 to match array index
-var slides = document.getElementById('slides');
-var nextButton = document.getElementById('next');
+var slides = document.getElementById("slides");
+var nextButton = document.getElementById("next");
 //images
 var myImages = [
   "art1.jpeg",
@@ -31,48 +30,69 @@ var captionImages = [
 ];
 
 let pArtist = function (pName, pWebsite, pCity, pArt) {
-    this.name = pName;
-    this.website = pWebsite;
-    this.city = pCity;
-    this.art = pArt;
-}
+  this.name = pName;
+  this.website = pWebsite;
+  this.city = pCity;
+  this.art = pArt;
+};
 //buttons
 nextButton.addEventListener("click", next(), false);
 previousButton.addEventListener("click", back(), false);
 
-
 //existing artists
 
-artistIndex.push(new pArtist("Sarah Hughes", "apinchdifferent.com", "North Bend", "Painting"));
-artistIndex.push(new pArtist("Tara Sreekuman", "plentyopixels.com", "Snoqualmie", "Photography"));
-artistIndex.push(new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painting"));
-artistIndex.push(new pArtist("Noelle Rivas", "instagram.com/ceramics_bynoelle", "Seattle", "Sculpting"));
-artistIndex.push(new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting"));
-artistIndex.push(new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other"));
+artistIndex.push(
+  new pArtist("Sarah Hughes", "apinchdifferent.com", "North Bend", "Painting")
+);
+artistIndex.push(
+  new pArtist(
+    "Tara Sreekuman",
+    "plentyopixels.com",
+    "Snoqualmie",
+    "Photography"
+  )
+);
+artistIndex.push(
+  new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painting")
+);
+artistIndex.push(
+  new pArtist(
+    "Noelle Rivas",
+    "instagram.com/ceramics_bynoelle",
+    "Seattle",
+    "Sculpting"
+  )
+);
+artistIndex.push(
+  new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting")
+);
+artistIndex.push(
+  new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other")
+);
 displayArtists(artistIndex);
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
   document.getElementById("subButton").addEventListener("click", function () {
     addArtist();
-  })
+  });
   $(document).bind("change", "#artType", function (event, ui) {
     selectedType = document.getElementById("artType").value;
-  })
+  });
   console.log(artistIndex);
-  document.getElementById("filterType").addEventListener("change", function() {
+  document.getElementById("filterType").addEventListener("change", function () {
     displayArtists();
-  })
+  });
 
   // document.getElementById("page").addEventListener("change", function (event) {
   //   whichPage = this.value; // 'this' refers to the element that triggered the event
   // })
 
   // Trigger the automatic slideshow initially
-  autoSlide()
-})
+  autoSlide();
+});
 
-  // search artist
+// search artist
 
 function displayArtists() {
   let artistsList = document.getElementById("artistsList");
@@ -89,38 +109,73 @@ function displayArtists() {
   });
 }
 
-
-  //function descriptions
-  function addArtist() {
-    // selectedType = document.getElementById("artType").value;
-    let Artist = {
-      name: document.getElementById("fName").value + " " + document.getElementById("lName").value,
-      website: document.getElementById("website").value,
-      city: document.getElementById("city").value,
-      art: selectedType
-    };
-    artistIndex.push(Artist);
-    console.log(artistIndex);
+//function descriptions
+function addArtist() {
+  // selectedType = document.getElementById("artType").value;
+  let Artist = {
+    name:
+      document.getElementById("fName").value +
+      " " +
+      document.getElementById("lName").value,
+    website: document.getElementById("website").value,
+    city: document.getElementById("city").value,
+    art: selectedType,
   };
+  artistIndex.push(Artist);
+  console.log(artistIndex);
+}
 
-  function autoSlide() {
-    setInterval(function () {
-      next();
-    }, 3000); // Change the interval (in milliseconds) as needed
-  }
+function autoSlide() {
+  setInterval(function () {
+    next();
+  }, 3000); // Change the interval (in milliseconds) as needed
+}
 
-  function updateImage() {
-    document.getElementById("slideshow").src = myImages[currentIndex];
-    document.getElementById("slideshow").alt = captionImages[currentIndex];
-    document.getElementById("caption").textContent = captionImages[currentIndex];
-  }
+function updateImage() {
+  document.getElementById("slideshow").src = myImages[currentIndex];
+  document.getElementById("slideshow").alt = captionImages[currentIndex];
+  document.getElementById("caption").textContent = captionImages[currentIndex];
+}
 
-  function next() {
-    currentIndex = (currentIndex + 1) % myImages.length;
-    updateImage();
-  }
+function next() {
+  currentIndex = (currentIndex + 1) % myImages.length;
+  updateImage();
+}
 
-  function back() {
-    currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
-    updateImage();
-  }
+function back() {
+  currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
+  updateImage();
+}
+    var liList = document.getElementsByClassName("oneMovie");
+    let newMoviewArray = Array.from(liList);
+    newMoviewArray.forEach(function (element) {
+        element.addEventListener('click', function () {
+        // get that data-parm we added for THIS particular li as we loop thru them
+        var url = this.getAttribute("data-parm");  // passing in the record.Id
+       
+        window.open(url, '_blank').focus();
+        });
+    });
+
+
+  
+
+
+  https://ourcodeworld.com/articles/read/764/how-to-sort-alphabetically-an-array-of-objects-by-key-in-javascript
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+
+    if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+
+    return function (a, b) {
+        if (sortOrder == -1) {
+            return b[property].localeCompare(a[property]);
+        } else {
+            return a[property].localeCompare(b[property]);
+        }
+    }
+}

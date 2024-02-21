@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <title>Welcome to Local PNW Artists Page!</title>
     <link rel="stylesheet" type="text/css" href="artiststyle.css" />
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
 
 
@@ -24,6 +24,9 @@
             </li>
             <li>
               <a href="#search" data-transition="flip">Search for an Artist</a>
+            </li>
+            <li>
+              <a href="#add" data-transition="flip">Artist List</a>
             </li>
           </ul>
         </div>
@@ -61,13 +64,17 @@
             <li>
               <a href="#search" data-transition="pop">Search for an Artist</a>
             </li>
+            <li>
+              <a href="#add" data-transition="flip">Artist List</a>
+            </li>
           </ul>
         </div>
         </div>
 
         <!--CONTENT-->
+        
         <div data-role="content" data-theme="a">
-          <form>
+          <h2>Enter a New Artist</h2>
             <label for="fName">Enter artist's first name:</label>
             <input type="text" id="fName" value="" />
             <label for="lName">Enter their last name:</label>
@@ -77,16 +84,25 @@
             <label for="city">Enter artist's city:</label>
             <input type="text" id="city" value="" />
             <!--DROP MENU-->
+            <div class="ui-field-contain">
             <label for="artType">Select a type:</label>
             <select name="artType" id="artType">
+              <option disabled selected value> -- select an option -- </option>
               <option value="Painting">Painting</option>
+              <option value="Drawing">Drawing</option>
               <option value="Sculpting">Sculpting</option>
               <option value="Photography">Photography</option>
+              <option value="Film">Film</option>
+              <option value="Music">Music</option>
+              <option value="Literature">Literature</option>
+              <option value="Performing Arts">Performing Arts</option>
               <option value="Other">Other</option>
             </select>
-            <input type="submit" id="subButton" value="Submit" />
-          </form>
-
+         
+          </div>
+ <input type="button" value="Click To Add Movie" id="buttonAdd" data-inline="true" />
+      <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
+        </div>
         <!--MENU -->
           <!-- <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
 
@@ -106,6 +122,8 @@
           <h3>Created by Marie & Shay 2024</h3>
         </div>
       </div>
+
+  </div>
     <!--END-->
 
 
@@ -121,40 +139,40 @@
         <li>
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
             </li>
+                    <li>
+              <a href="#add" data-transition="flip">Artist List</a>
+            </li>
       </ul>
-      <h1>Artists List</h1>
+      </ul>
+      <h1>Artist List</h1>
         </div>
       </div>
 
       <!-- Content for the List Page -->
- <label for="filterType">Filter by Type:</label>
-  <select id="filterType">
-    <option value="All">All</option>
-    <option value="Painting">Painting</option>
-    <option value="Sculpting">Sculpting</option>
-    <option value="Photography">Photography</option>
-    <option value="Other">Other</option>
-  </select>
-      <div data-role="content">
-        <ul id="artistsList"></ul>
+    <div data-role="content" data-theme='e'>
+      <p> Here are my Movies</p>
+      <div id="divMovieList">
+        <ul id="myul"></ul>
       </div>
-          <!--FOOTER-->
-      <div data-role="footer" data-theme="a">
-        <h3>Created by Marie & Shay 2024</h3>
-      </div>
+      <input type="button" value="Sort By Genre" id="buttonSortGenre" data-inline="true" />
+      <input type="button" value="Sort By Title" id="buttonSortTitle" data-inline="true" />
     </div>
+ 
     <!--END-->
 
+  
 
 
 
-  </div> <!--CONTAINER DIV-->
+
+  
 
 
 
   <script src="artistindex.js"></script>
   <!-- jquery -->
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </body>
 </html>
