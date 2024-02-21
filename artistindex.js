@@ -70,12 +70,20 @@ artistIndex.push(
   new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other")
 );
 displayArtists(artistIndex);
+
+
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  document.getElementById("subButton").addEventListener("click", function () {
-    addArtist();
-  });
+  //button events
+  // document.addEventListener("change", function(event) {
+  //   if (event.target.id === "artType") {
+  //       selectedType = event.target.value;
+  //   }
+  // });
+document.getElementById("subButton").addEventListener("click", function () {
+  addArtist();
+});
   $(document).bind("change", "#artType", function (event, ui) {
     selectedType = document.getElementById("artType").value;
   });
@@ -92,8 +100,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   autoSlide();
 });
 
-// search artist
-
+//function descriptions
 function displayArtists() {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
@@ -109,9 +116,8 @@ function displayArtists() {
   });
 }
 
-//function descriptions
 function addArtist() {
-  // selectedType = document.getElementById("artType").value;
+  selectedType = document.getElementById("artType").value;
   let Artist = {
     name:
       document.getElementById("fName").value +
@@ -146,36 +152,53 @@ function back() {
   currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
   updateImage();
 }
-    var liList = document.getElementsByClassName("oneMovie");
-    let newMoviewArray = Array.from(liList);
-    newMoviewArray.forEach(function (element) {
-        element.addEventListener('click', function () {
-        // get that data-parm we added for THIS particular li as we loop thru them
-        var url = this.getAttribute("data-parm");  // passing in the record.Id
-       
-        window.open(url, '_blank').focus();
-        });
-    });
 
 
-  
+// create table
+function createTable() {
+  var theTable = document.getElementById("tableID");
+  theTable.innerHTML = "";
+  //column headings
+  theTable.innerHTML = "<thead><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
+  //rows
+  artistIndex.forEach((Artist) => {
+    const newRow = document.createElement('tr');
+    const tdName = document.createElement("td");
+    const tdWebsite = document.createElement("td");
+    const tdCity = document.createElement("td");
+    const tdArt = document.createElement("td");
+    tdName.textContent = Artist.name;
+    tdWebsite.textContent = Artist.website;
+    tdCity.textContent = Artist.city;
+    tdArt.textContent = Artist.art;
+    newRow.appendChild(tdName);
+    newRow.appendChild(tdWebsite);
+    newRow.appendChild(tdCity);
+    newRow.appendChild(tdArt);
+    theTable.appendChild(newRow);
+  });
+  var table = document.getElementById('tableID');
+  var rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+      var currentRow = table.rows[i];
+      var createClickHandler = 
+          function(row) 
+          {
+              return function() { 
+                                  var cell = row.getElementsByTagName("td")[0];
+                                  var whichWebsite = cell.innerHTML;
+                                  openWebsite(whichWebsite);
+                               };
+          };
 
+      currentRow.onclick = createClickHandler(currentRow);
+  }
+}
 
-  https://ourcodeworld.com/articles/read/764/how-to-sort-alphabetically-an-array-of-objects-by-key-in-javascript
-
-function dynamicSort(property) {
-    var sortOrder = 1;
-
-    if (property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-
-    return function (a, b) {
-        if (sortOrder == -1) {
-            return b[property].localeCompare(a[property]);
-        } else {
-            return a[property].localeCompare(b[property]);
-        }
-    }
+function openWebsite(which){
+  for(let i = 0; i < artistIndex.length; i++){
+     if(which == artistIndex[i].website){
+        window.open(artistIndex[i].website);
+      }
+  }
 }

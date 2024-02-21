@@ -23,10 +23,7 @@
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
             </li>
             <li>
-              <a href="#search" data-transition="flip">Search for an Artist</a>
-            </li>
-            <li>
-              <a href="#add" data-transition="flip">Artist List</a>
+              <a href="#list" data-transition="flip">Artist List</a>
             </li>
           </ul>
         </div>
@@ -62,19 +59,16 @@
           <ul>
             <li><a href="#home" data-transition="pop">Home Page</a></li>
             <li>
-              <a href="#search" data-transition="pop">Search for an Artist</a>
-            </li>
-            <li>
-              <a href="#add" data-transition="flip">Artist List</a>
+              <a href="#list" data-transition="flip">Artist List</a>
             </li>
           </ul>
-        </div>
         </div>
 
         <!--CONTENT-->
         
         <div data-role="content" data-theme="a">
-          <h2>Enter a New Artist</h2>
+          <h2>enter a new artist</h2>
+          <form>
             <label for="fName">Enter artist's first name:</label>
             <input type="text" id="fName" value="" />
             <label for="lName">Enter their last name:</label>
@@ -98,10 +92,11 @@
               <option value="Performing Arts">Performing Arts</option>
               <option value="Other">Other</option>
             </select>
-         
-          </div>
- <input type="button" value="Click To Add Movie" id="buttonAdd" data-inline="true" />
-      <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
+            </div>
+            <input type="submit" id="subButton">
+          </form>
+            <!-- <input type="button" value="Click To Add Artist" id="buttonAdd" data-inline="true" />
+            <input type="button" value="Clear Data" id="buttonClear" data-inline="true" /> -->
         </div>
         <!--MENU -->
           <!-- <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
@@ -120,15 +115,12 @@
       <!--FOOTER-->
         <div data-role="footer" data-theme="a">
           <h3>Created by Marie & Shay 2024</h3>
-        </div>
       </div>
-
-  </div>
+    </div>
     <!--END-->
 
-
-    <!--Add page for searchable artist-->
-    <div data-role="page" id="search">
+    <!--LIST/SEARCH-->
+    <div data-role="page" id="list">
       <div data-role="header" data-theme="a">
         <h2>Local Artist Directory - Search For an Artist</h2>
  
@@ -138,11 +130,7 @@
         <li><a href="#home" data-transition="pop">Home Page</a></li>
         <li>
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
-            </li>
-                    <li>
-              <a href="#add" data-transition="flip">Artist List</a>
-            </li>
-      </ul>
+        </li>
       </ul>
       <h1>Artist List</h1>
         </div>
@@ -150,23 +138,36 @@
 
       <!-- Content for the List Page -->
     <div data-role="content" data-theme='e'>
-      <p> Here are my Movies</p>
-      <div id="divMovieList">
-        <ul id="myul"></ul>
+      <h2>local artist index</h2>
+
+      <label for="filterType">Filter by Type:</label>
+      <select name="filterType" id="filterType">
+        <option value="All">All</option>
+        <option value="Painting">Painting</option>
+        <option value="Sculpting">Sculpting</option>
+        <option value="Photography">Photography</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <div data-role="content">
+        <ul id="artistsList"></ul>
       </div>
-      <input type="button" value="Sort By Genre" id="buttonSortGenre" data-inline="true" />
-      <input type="button" value="Sort By Title" id="buttonSortTitle" data-inline="true" />
+      <h2>Artist Websites</h2>
+      <table id="tableID"></table>
+
     </div>
  
+
+        <!--FOOTER-->
+          <div data-role="footer" data-theme="a">
+            <h3>Created by Marie & Shay 2024</h3>
+          </div>
+  
+    </div>
     <!--END-->
+  </div>
 
   
-
-
-
-
-  
-
 
 
   <script src="artistindex.js"></script>
