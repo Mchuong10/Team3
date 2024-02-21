@@ -75,19 +75,15 @@ displayArtists(artistIndex);
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  //button events
-  // document.addEventListener("change", function(event) {
-  //   if (event.target.id === "artType") {
-  //       selectedType = event.target.value;
-  //   }
-  // });
+
+
 document.getElementById("subButton").addEventListener("click", function () {
   addArtist();
 });
-  $(document).bind("change", "#artType", function (event, ui) {
-    selectedType = document.getElementById("artType").value;
-  });
-  console.log(artistIndex);
+  // $(document).bind("change", "#artType", function (event, ui) {
+  //   selectedType = document.getElementById("artType").value;
+  // });
+
   document.getElementById("filterType").addEventListener("change", function () {
     displayArtists();
   });
@@ -95,7 +91,7 @@ document.getElementById("subButton").addEventListener("click", function () {
   // document.getElementById("page").addEventListener("change", function (event) {
   //   whichPage = this.value; // 'this' refers to the element that triggered the event
   // })
-
+  createTable();
   // Trigger the automatic slideshow initially
   autoSlide();
 });
