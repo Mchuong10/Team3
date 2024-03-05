@@ -3,13 +3,8 @@ let selectedType = "";
 let whichPage = "";
 var currentIndex = 0;
 var slides = document.getElementById("slides");
-var nextButton = document.getElementById("next");
-var previousButton = document.getElementById("previous");
 
-//slideshow
-var currentIndex = 0; // Start from 0 to match array index
-var slides = document.getElementById("slides");
-var nextButton = document.getElementById("next");
+
 //images
 var myImages = [
   "art1.jpeg",
@@ -29,15 +24,18 @@ var captionImages = [
   "Original Abstract by Will Brown",
 ];
 
+// Event listeners for navigation buttons
+nextButton.addEventListener("click", next, false);
+previousButton.addEventListener("click", back, false);
+
+
 let pArtist = function (pName, pWebsite, pCity, pArt) {
   this.name = pName;
   this.website = pWebsite;
   this.city = pCity;
   this.art = pArt;
 };
-//buttons
-nextButton.addEventListener("click", next(), false);
-previousButton.addEventListener("click", back(), false);
+
 
 //existing artists
 
@@ -79,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   $(document).bind("change", "#artType", function (event, ui) {
     selectedType = document.getElementById("artType").value;
   });
-  console.log(artistIndex);
   document.getElementById("filterType").addEventListener("change", function () {
     displayArtists();
   });
@@ -132,20 +129,12 @@ function autoSlide() {
 }
 
 function updateImage() {
-  document.getElementById("slideshow").src = myImages[currentIndex];
-  document.getElementById("slideshow").alt = captionImages[currentIndex];
+  slides.src = myImages[currentIndex];
+  slides.alt = captionImages[currentIndex];
   document.getElementById("caption").textContent = captionImages[currentIndex];
 }
 
-function next() {
-  currentIndex = (currentIndex + 1) % myImages.length;
-  updateImage();
-}
 
-function back() {
-  currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
-  updateImage();
-}
     var liList = document.getElementsByClassName("oneMovie");
     let newMoviewArray = Array.from(liList);
     newMoviewArray.forEach(function (element) {
@@ -156,7 +145,7 @@ function back() {
         window.open(url, '_blank').focus();
         });
     });
-
+ const  NewRow = 
 
   
 
