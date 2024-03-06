@@ -160,7 +160,7 @@ function back() {
   
 
 
-  https://ourcodeworld.com/articles/read/764/how-to-sort-alphabetically-an-array-of-objects-by-key-in-javascript
+  
 
 function dynamicSort(property) {
     var sortOrder = 1;
