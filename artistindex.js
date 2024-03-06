@@ -2,8 +2,6 @@ artistIndex = [];
 let selectedType = "";
 let whichPage = "";
 var currentIndex = 0;
-var slides = document.getElementById("slides");
-
 
 //images
 var myImages = [
@@ -109,8 +107,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //   whichPage = this.value; // 'this' refers to the element that triggered the event
   // })
   createTable();
+  var slides = document.getElementById("slides");
   // Trigger the automatic slideshow initially
-  autoSlide();
+  window.addEventListener("load", function () {
+    // Call autoSlide function after all resources have loaded
+    autoSlide();
+  });
 });
 
 //function descriptions
@@ -147,29 +149,24 @@ function addArtist() {
 }
 
 function autoSlide() {
+  console.log("Auto slide function called");
   setInterval(function () {
     next();
+    updateImage(); // Call updateImage() to transition the images
   }, 3000); // Change the interval (in milliseconds) as needed
 }
-
 function updateImage() {
+  console.log("Update image function called");
+  const slides = document.getElementById("slides");
   slides.src = myImages[currentIndex];
   slides.alt = captionImages[currentIndex];
   document.getElementById("caption").textContent = captionImages[currentIndex];
 }
-
 // Next function
 function next() {
+  console.log("Next function called");
   currentIndex = (currentIndex + 1) % myImages.length;
-  updateImage();
 }
-
-// Back function
-function back() {
-  currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
-  updateImage();
-}
-
 
 // create table
 function createTable() {
