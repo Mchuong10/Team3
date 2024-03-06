@@ -138,7 +138,13 @@ function updateImage() {
   document.getElementById("caption").textContent = captionImages[currentIndex];
 }
 
+// Next function
+function next() {
+  currentIndex = (currentIndex + 1) % myImages.length;
+  updateImage();
+}
 
+// Back function
 function back() {
   currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
   updateImage();
