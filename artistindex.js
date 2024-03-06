@@ -3,7 +3,8 @@ let selectedType = "";
 let whichPage = "";
 var currentIndex = 0;
 var slides = document.getElementById("slides");
-
+var nextButton = document.getElementById("next");
+var previousButton = document.getElementById("previous");
 
 //images
 var myImages = [
@@ -30,14 +31,19 @@ let pArtist = function (pID, pName, pWebsite, pCity, pArt) {
   this.website = pWebsite;
   this.city = pCity;
   this.art = pArt;
-  this.ID = artistIndex.length +1
+  this.ID = artistIndex.length + 1;
 };
-
 
 //existing artists
 
 artistIndex.push(
-  new pArtist(1, "Sarah Hughes", "https://www.apinchdifferent.com/", "North Bend", "Painting")
+  new pArtist(
+    1,
+    "Sarah Hughes",
+    "https://www.apinchdifferent.com/",
+    "North Bend",
+    "Painting"
+  )
 );
 artistIndex.push(
   new pArtist(
@@ -49,7 +55,13 @@ artistIndex.push(
   )
 );
 artistIndex.push(
-  new pArtist(3, "Jess Joy", "https://www.jessjoyart.com/", "North Bend", "Painting")
+  new pArtist(
+    3,
+    "Jess Joy",
+    "https://www.jessjoyart.com/",
+    "North Bend",
+    "Painting"
+  )
 );
 artistIndex.push(
   new pArtist(
@@ -61,22 +73,31 @@ artistIndex.push(
   )
 );
 artistIndex.push(
-  new pArtist(5, "Pepper Allphin", "https://www.instagram.com/pepper.allphin/", "North Bend", "Painting")
+  new pArtist(
+    5,
+    "Pepper Allphin",
+    "https://www.instagram.com/pepper.allphin/",
+    "North Bend",
+    "Painting"
+  )
 );
 artistIndex.push(
-  new pArtist(6, "Adel Anderson", "https://www.instagram.com/toymakery/", "Seattle", "Other")
+  new pArtist(
+    6,
+    "Adel Anderson",
+    "https://www.instagram.com/toymakery/",
+    "Seattle",
+    "Other"
+  )
 );
 displayArtists(artistIndex);
-
 
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
-
-
-document.getElementById("subButton").addEventListener("click", function () {
-  addArtist();
-});
+  document.getElementById("subButton").addEventListener("click", function () {
+    addArtist();
+  });
   // $(document).bind("change", "#artType", function (event, ui) {
   //   selectedType = document.getElementById("artType").value;
   // });
@@ -90,7 +111,6 @@ document.getElementById("subButton").addEventListener("click", function () {
   // })
   createTable();
   // Trigger the automatic slideshow initially
-  autoSlide();
 });
 
 //function descriptions
@@ -105,14 +125,14 @@ function displayArtists() {
       let listItem = document.createElement("li");
       listItem.textContent = `${Artist.name} - ${Artist.city} - ${Artist.website} - ${Artist.art}`;
       artistsList.appendChild(listItem);
-    };
+    }
   });
 }
 
 function addArtist() {
   selectedType = document.getElementById("artType").value;
   let Artist = {
-    ID: artistIndex.length +1,
+    ID: artistIndex.length + 1,
     name:
       document.getElementById("fName").value +
       " " +
@@ -150,16 +170,19 @@ function back() {
   updateImage();
 }
 
+// Trigger the automatic slideshow initially
+autoSlide();
 
 // create table
 function createTable() {
   var theTable = document.getElementById("tableID");
   theTable.innerHTML = "";
   //column headings
-  theTable.innerHTML = "<thead><th>ID</th><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
+  theTable.innerHTML =
+    "<thead><th>ID</th><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
   //rows
   artistIndex.forEach((Artist) => {
-    const newRow = document.createElement('tr');
+    const newRow = document.createElement("tr");
     const tdID = document.createElement("td");
     const tdName = document.createElement("td");
     const tdWebsite = document.createElement("td");
@@ -177,28 +200,26 @@ function createTable() {
     newRow.appendChild(tdArt);
     theTable.appendChild(newRow);
   });
-  var table = document.getElementById('tableID');
+  var table = document.getElementById("tableID");
   var rows = table.getElementsByTagName("tr");
   for (i = 0; i < rows.length; i++) {
-      var currentRow = table.rows[i];
-      var createClickHandler = 
-          function(row) 
-          {
-              return function() { 
-                                  var cell = row.getElementsByTagName("td")[0];
-                                  var whichID = cell.innerHTML;
-                                  openWebsite(whichID);
-                               };
-          };
+    var currentRow = table.rows[i];
+    var createClickHandler = function (row) {
+      return function () {
+        var cell = row.getElementsByTagName("td")[0];
+        var whichID = cell.innerHTML;
+        openWebsite(whichID);
+      };
+    };
 
-      currentRow.onclick = createClickHandler(currentRow);
+    currentRow.onclick = createClickHandler(currentRow);
   }
 }
 
-function openWebsite(which){
-  for(let i = 0; i < artistIndex.length; i++){
-     if(which == artistIndex[i].ID){
-        window.open(artistIndex[i].website);
-      }
+function openWebsite(which) {
+  for (let i = 0; i < artistIndex.length; i++) {
+    if (which == artistIndex[i].ID) {
+      window.open(artistIndex[i].website);
+    }
   }
 }
