@@ -24,59 +24,63 @@ var captionImages = [
   "Original Abstract by Will Brown",
 ];
 
-// Event listeners for navigation buttons
-nextButton.addEventListener("click", next, false);
-previousButton.addEventListener("click", back, false);
-
-
-let pArtist = function (pName, pWebsite, pCity, pArt) {
+let pArtist = function (pID, pName, pWebsite, pCity, pArt) {
+  this.ID = pID;
   this.name = pName;
   this.website = pWebsite;
   this.city = pCity;
   this.art = pArt;
+  this.ID = artistIndex.length +1
 };
 
 
 //existing artists
 
 artistIndex.push(
-  new pArtist("Sarah Hughes", "apinchdifferent.com", "North Bend", "Painting")
+  new pArtist(1, "Sarah Hughes", "https://www.apinchdifferent.com/", "North Bend", "Painting")
 );
 artistIndex.push(
   new pArtist(
+    2,
     "Tara Sreekuman",
-    "plentyopixels.com",
+    "https://www.plentyopixels.com/",
     "Snoqualmie",
     "Photography"
   )
 );
 artistIndex.push(
-  new pArtist("Jess Joy", "jessjoyart.com", "North Bend", "Painting")
+  new pArtist(3, "Jess Joy", "https://www.jessjoyart.com/", "North Bend", "Painting")
 );
 artistIndex.push(
   new pArtist(
+    4,
     "Noelle Rivas",
-    "instagram.com/ceramics_bynoelle",
+    "https://www.instagram.com/ceramics_bynoelle/",
     "Seattle",
     "Sculpting"
   )
 );
 artistIndex.push(
-  new pArtist("Pepper Allphin", "artbypepper.com", "North Bend", "Painting")
+  new pArtist(5, "Pepper Allphin", "https://www.instagram.com/pepper.allphin/", "North Bend", "Painting")
 );
 artistIndex.push(
-  new pArtist("Adel Anderson", "instagram.com/toymakery", "Seattle", "Other")
+  new pArtist(6, "Adel Anderson", "https://www.instagram.com/toymakery/", "Seattle", "Other")
 );
 displayArtists(artistIndex);
+
+
 //dom loaded
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  document.getElementById("subButton").addEventListener("click", function () {
-    addArtist();
-  });
-  $(document).bind("change", "#artType", function (event, ui) {
-    selectedType = document.getElementById("artType").value;
-  });
+
+
+document.getElementById("subButton").addEventListener("click", function () {
+  addArtist();
+});
+  // $(document).bind("change", "#artType", function (event, ui) {
+  //   selectedType = document.getElementById("artType").value;
+  // });
+
   document.getElementById("filterType").addEventListener("change", function () {
     displayArtists();
   });
@@ -84,13 +88,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // document.getElementById("page").addEventListener("change", function (event) {
   //   whichPage = this.value; // 'this' refers to the element that triggered the event
   // })
-
+  createTable();
   // Trigger the automatic slideshow initially
   autoSlide();
 });
 
-// search artist
-
+//function descriptions
 function displayArtists() {
   let artistsList = document.getElementById("artistsList");
   let filterType = document.getElementById("filterType").value;
@@ -106,10 +109,10 @@ function displayArtists() {
   });
 }
 
-//function descriptions
 function addArtist() {
-  // selectedType = document.getElementById("artType").value;
+  selectedType = document.getElementById("artType").value;
   let Artist = {
+    ID: artistIndex.length +1,
     name:
       document.getElementById("fName").value +
       " " +
@@ -119,7 +122,8 @@ function addArtist() {
     art: selectedType,
   };
   artistIndex.push(Artist);
-  console.log(artistIndex);
+  document.location.href = "artistmain.html#list";
+  // console.log(artistIndex);
 }
 
 function autoSlide() {
@@ -135,36 +139,60 @@ function updateImage() {
 }
 
 
-    var liList = document.getElementsByClassName("oneMovie");
-    let newMoviewArray = Array.from(liList);
-    newMoviewArray.forEach(function (element) {
-        element.addEventListener('click', function () {
-        // get that data-parm we added for THIS particular li as we loop thru them
-        var url = this.getAttribute("data-parm");  // passing in the record.Id
-       
-        window.open(url, '_blank').focus();
-        });
-    });
- const  NewRow = 
-
-  
+function back() {
+  currentIndex = (currentIndex - 1 + myImages.length) % myImages.length;
+  updateImage();
+}
 
 
-  https://ourcodeworld.com/articles/read/764/how-to-sort-alphabetically-an-array-of-objects-by-key-in-javascript
+// create table
+function createTable() {
+  var theTable = document.getElementById("tableID");
+  theTable.innerHTML = "";
+  //column headings
+  theTable.innerHTML = "<thead><th>ID</th><th>Name</th><th>Website</th><th>City</th><th>Art Type</th></thead>";
+  //rows
+  artistIndex.forEach((Artist) => {
+    const newRow = document.createElement('tr');
+    const tdID = document.createElement("td");
+    const tdName = document.createElement("td");
+    const tdWebsite = document.createElement("td");
+    const tdCity = document.createElement("td");
+    const tdArt = document.createElement("td");
+    tdID.textContent = Artist.ID;
+    tdName.textContent = Artist.name;
+    tdWebsite.textContent = Artist.website;
+    tdCity.textContent = Artist.city;
+    tdArt.textContent = Artist.art;
+    newRow.appendChild(tdID);
+    newRow.appendChild(tdName);
+    newRow.appendChild(tdWebsite);
+    newRow.appendChild(tdCity);
+    newRow.appendChild(tdArt);
+    theTable.appendChild(newRow);
+  });
+  var table = document.getElementById('tableID');
+  var rows = table.getElementsByTagName("tr");
+  for (i = 0; i < rows.length; i++) {
+      var currentRow = table.rows[i];
+      var createClickHandler = 
+          function(row) 
+          {
+              return function() { 
+                                  var cell = row.getElementsByTagName("td")[0];
+                                  var whichID = cell.innerHTML;
+                                  openWebsite(whichID);
+                               };
+          };
 
-function dynamicSort(property) {
-    var sortOrder = 1;
+      currentRow.onclick = createClickHandler(currentRow);
+  }
+}
 
-    if (property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-
-    return function (a, b) {
-        if (sortOrder == -1) {
-            return b[property].localeCompare(a[property]);
-        } else {
-            return a[property].localeCompare(b[property]);
-        }
-    }
+function openWebsite(which){
+  for(let i = 0; i < artistIndex.length; i++){
+     if(which == artistIndex[i].ID){
+        window.open(artistIndex[i].website);
+      }
+  }
 }

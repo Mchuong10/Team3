@@ -67,6 +67,8 @@
         <div data-role="content" data-theme="a">
           <h2>enter a new artist</h2>
           <form>
+          <h2>enter a new artist</h2>
+          <form>
             <label for="fName">Enter artist's first name:</label>
             <input type="text" id="fName" value="" />
             <label for="lName">Enter their last name:</label>
@@ -110,12 +112,14 @@
       </div>
 
       <!--FOOTER-->
-      <div data-role="footer" data-theme="a">
-        <h3>Created by Marie & Shay 2024</h3>
+        <div data-role="footer" data-theme="a">
+          <h3>Created by Marie & Shay 2024</h3>
       </div>
     </div>
     <!--END-->
 
+    <!--LIST/SEARCH-->
+    <div data-role="page" id="list">
     <!--LIST/SEARCH-->
     <div data-role="page" id="list">
       <div data-role="header" data-theme="a">
@@ -127,9 +131,9 @@
             <li><a href="#home" data-transition="pop">Home Page</a></li>
             <li>
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
-            </li>
-          </ul>
-          <h1>Artist List</h1>
+        </li>
+      </ul>
+      <h1>Artist List</h1>
         </div>
       </div>
 
@@ -161,7 +165,28 @@
       <div data-role="footer" data-theme="a">
         <h3>Created by Marie & Shay 2024</h3>
       </div>
+
+      <table id="tableID"></table>
+
+    </div>
+ 
+
+        <!--FOOTER-->
+          <div data-role="footer" data-theme="a">
+            <h3>Created by Marie & Shay 2024</h3>
+          </div>
+  
     </div>
     <!--END-->
   </div>
+
+  
+
+
+  <script src="artistindex.js"></script>
+  <!-- jquery -->
+ <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</body>
 </html>
