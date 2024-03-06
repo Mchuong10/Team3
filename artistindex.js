@@ -3,8 +3,7 @@ let selectedType = "";
 let whichPage = "";
 var currentIndex = 0;
 var slides = document.getElementById("slides");
-var nextButton = document.getElementById("next");
-var previousButton = document.getElementById("previous");
+
 
 //images
 var myImages = [
