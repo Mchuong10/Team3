@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <title>Welcome to Local PNW Artists Page!</title>
     <link rel="stylesheet" type="text/css" href="artiststyle.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   </head>
 
-
   <div id="container">
-
     <!--HOME PAGE-->
     <!--NAV-->
     <div data-role="page" id="home" data-theme="a">
@@ -23,10 +23,7 @@
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
             </li>
             <li>
-              <a href="#search" data-transition="flip">Search for an Artist</a>
-            </li>
-            <li>
-              <a href="#add" data-transition="flip">Artist List</a>
+              <a href="#list" data-transition="flip">Artist List</a>
             </li>
           </ul>
         </div>
@@ -36,15 +33,13 @@
       <div data-role="content" data-theme="a">
         <h2>Artist Spotlight</h2>
 
-    <!--SLIDESHOW-->
-<div id="slides">
-  <img id="slideshow" src="art1.jpeg" alt="art1" />
-  <p id="caption">"WaterColor by Pepper Allphin"</p>
-</div>
-<button id="previous">PREVIOUS</button>
-<button id="next">NEXT</button>
-<br>
-</div>
+        <!--SLIDESHOW-->
+        <div id="slides">
+          <img id="slideshow" src="art1.jpeg" alt="art1" />
+          <p id="caption">"WaterColor by Pepper Allphin"</p>
+        </div>
+        <br />
+      </div>
 
       <!--FOOTER-->
       <div data-role="footer" data-theme="a">
@@ -62,19 +57,16 @@
           <ul>
             <li><a href="#home" data-transition="pop">Home Page</a></li>
             <li>
-              <a href="#search" data-transition="pop">Search for an Artist</a>
-            </li>
-            <li>
-              <a href="#add" data-transition="flip">Artist List</a>
+              <a href="#list" data-transition="flip">Artist List</a>
             </li>
           </ul>
         </div>
-        </div>
 
         <!--CONTENT-->
-        
+
         <div data-role="content" data-theme="a">
-          <h2>Enter a New Artist</h2>
+          <h2>enter a new artist</h2>
+          <form>
             <label for="fName">Enter artist's first name:</label>
             <input type="text" id="fName" value="" />
             <label for="lName">Enter their last name:</label>
@@ -85,26 +77,27 @@
             <input type="text" id="city" value="" />
             <!--DROP MENU-->
             <div class="ui-field-contain">
-            <label for="artType">Select a type:</label>
-            <select name="artType" id="artType">
-              <option disabled selected value> -- select an option -- </option>
-              <option value="Painting">Painting</option>
-              <option value="Drawing">Drawing</option>
-              <option value="Sculpting">Sculpting</option>
-              <option value="Photography">Photography</option>
-              <option value="Film">Film</option>
-              <option value="Music">Music</option>
-              <option value="Literature">Literature</option>
-              <option value="Performing Arts">Performing Arts</option>
-              <option value="Other">Other</option>
-            </select>
-         
-          </div>
- <input type="button" value="Click To Add Movie" id="buttonAdd" data-inline="true" />
-      <input type="button" value="Clear Data" id="buttonClear" data-inline="true" />
+              <label for="artType">Select a type:</label>
+              <select name="artType" id="artType">
+                <option disabled selected value>-- select an option --</option>
+                <option value="Painting">Painting</option>
+                <option value="Drawing">Drawing</option>
+                <option value="Sculpting">Sculpting</option>
+                <option value="Photography">Photography</option>
+                <option value="Film">Film</option>
+                <option value="Music">Music</option>
+                <option value="Literature">Literature</option>
+                <option value="Performing Arts">Performing Arts</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <input type="submit" id="subButton" />
+          </form>
+          <!-- <input type="button" value="Click To Add Artist" id="buttonAdd" data-inline="true" />
+            <input type="button" value="Clear Data" id="buttonClear" data-inline="true" /> -->
         </div>
         <!--MENU -->
-          <!-- <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
+        <!-- <a href="#popupMenu" data-rel="popup" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-gear ui-btn-icon-left ui-btn-a">What would you like to do?</a>
 
           <div data-role="popup" id="popupMenu" data-theme="a">
             <ul data-role="listview" data-inset="true" style="min-width: 210px">
@@ -114,65 +107,61 @@
               </li>
             </ul>
           </div> -->
-
-        </div>
-
-      <!--FOOTER-->
-        <div data-role="footer" data-theme="a">
-          <h3>Created by Marie & Shay 2024</h3>
-        </div>
       </div>
 
-  </div>
+      <!--FOOTER-->
+      <div data-role="footer" data-theme="a">
+        <h3>Created by Marie & Shay 2024</h3>
+      </div>
+    </div>
     <!--END-->
 
-
-    <!--Add page for searchable artist-->
-    <div data-role="page" id="search">
+    <!--LIST/SEARCH-->
+    <div data-role="page" id="list">
       <div data-role="header" data-theme="a">
         <h2>Local Artist Directory - Search For an Artist</h2>
- 
-    <!--NAV-->
-    <div data-role="navbar" data-theme="a">
-      <ul>
-        <li><a href="#home" data-transition="pop">Home Page</a></li>
-        <li>
+
+        <!--NAV-->
+        <div data-role="navbar" data-theme="a">
+          <ul>
+            <li><a href="#home" data-transition="pop">Home Page</a></li>
+            <li>
               <a href="#add" data-transition="flip">Add an Artist Profile</a>
             </li>
-                    <li>
-              <a href="#add" data-transition="flip">Artist List</a>
-            </li>
-      </ul>
-      </ul>
-      <h1>Artist List</h1>
+          </ul>
+          <h1>Artist List</h1>
         </div>
       </div>
 
       <!-- Content for the List Page -->
-    <div data-role="content" data-theme='e'>
-      <p> Here are my Movies</p>
-      <div id="divMovieList">
-        <ul id="myul"></ul>
+      <div data-role="content" data-theme="e">
+        <h2>local artist index</h2>
+
+        <select name="filterType" id="filterType">
+          <option value="All">All</option>
+          <option value="Painting">Painting</option>
+          <option value="Drawing">Drawing</option>
+          <option value="Sculpting">Sculpting</option>
+          <option value="Photography">Photography</option>
+          <option value="Film">Film</option>
+          <option value="Music">Music</option>
+          <option value="Literature">Literature</option>
+          <option value="Performing Arts">Performing Arts</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <div data-role="content">
+          <ul id="artistsList"></ul>
+        </div>
+        <h2>Artist Websites</h2>
+        <table id="tableID"></table>
       </div>
-      <input type="button" value="Sort By Genre" id="buttonSortGenre" data-inline="true" />
-      <input type="button" value="Sort By Title" id="buttonSortTitle" data-inline="true" />
+
+      <!--FOOTER-->
+      <div data-role="footer" data-theme="a">
+        <h3>Created by Marie & Shay 2024</h3>
+      </div>
     </div>
- 
     <!--END-->
-
-  
-
-
-
-
-  
-
-
-
-  <script src="artistindex.js"></script>
-  <!-- jquery -->
- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-</body>
+  </div>
 </html>
