@@ -110,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   // })
   createTable();
   // Trigger the automatic slideshow initially
+  autoSlide();
 });
 
 //function descriptions
@@ -169,8 +170,6 @@ function back() {
   updateImage();
 }
 
-// Trigger the automatic slideshow initially
-autoSlide();
 
 // create table
 function createTable() {
